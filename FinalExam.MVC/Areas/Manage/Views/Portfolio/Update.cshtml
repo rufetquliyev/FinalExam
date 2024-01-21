@@ -1,0 +1,17 @@
+﻿@using FinalExam.Business.ViewModels.PortfolioVMs
+@model UpdatePortfolioVm
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Title">Title</label>
+        <input asp-for="Title" type="text" class="form-control" id="formGroupExampleInput" placeholder="Title">
+    </div>
+    <div class="form-group">
+        <div style="width:100%">
+            <img src="~/Upload/PortfolioImages/@Model.ImgUrl" style="width:100px;border-radius:50px" />
+        </div>
+        <label asp-for="Image">Image</label>
+        <input asp-for="Image" class="form-control" id="formGroupExampleInput2" placeholder="Image file">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <div asp-validation-summary="All" style="color:red"></div>
+</form>

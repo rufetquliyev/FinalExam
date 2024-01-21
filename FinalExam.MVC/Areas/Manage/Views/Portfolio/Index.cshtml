@@ -1,0 +1,38 @@
+﻿@using FinalExam.Core.Entities
+@model IQueryable<Portfolio>
+@{
+    int count = 0;
+}
+<div class="container">
+    <h1>Portfolios</h1>
+    <a asp-action="Create" asp-controller="Portfolio" class="btn btn-primary" style="margin-left:90%">Create</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Image</th>
+            <th scope="col">Operations</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            count++;
+            <tr>
+                <th scope="row">@count</th>
+                <td>@item.Title</td>
+                <td>
+                    <div style="width:100%">
+                            <img src="~/Upload/PortfolioImages/@item.ImgUrl" style="width:100px;border-radius:50px" />
+                    </div>
+                </td>
+                <td>
+                    <a asp-action="Update" asp-controller="Portfolio" asp-route-id="@item.Id" class="btn btn-warning">Update</a>
+                    <a asp-action="Delete" asp-controller="Portfolio" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>

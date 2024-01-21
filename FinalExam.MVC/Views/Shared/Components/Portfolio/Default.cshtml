@@ -1,0 +1,10 @@
+﻿@using FinalExam.Core.Entities
+@model IQueryable<Portfolio>
+@foreach (var item in Model)
+{
+    <div class="col-md-4 col-sm-4 col-xs-12">
+        <a href="#portfolioBig1" data-toggle="modal">
+            <img src="~/Upload/PortfolioImages/@item.ImgUrl" class="img-responsive " alt="" />
+        </a>
+    </div>
+}
